@@ -1,24 +1,21 @@
-const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
+const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 
 function init() {
-  let bodyEvent = document.querySelector('body');
+  let index = 0;
 
-  bodyEvent.addEventListener('keydown', function(e){
-    let index = 0;
+  document.body.addEventListener('keydown', function(e) {
+    const key = parseInt(e.which || e.detail);
 
-    console.log(e.which);
-
-    if (parseInt(e.which || e.detail) === code[index]) {
+    if (code[index] === key) {
       index++;
-      if (index === code.length) {
-        alert('Good for you!!')
 
-        index = 0;
-      } else {
+      if (index === code.length) {
+        alert('Hurray!');
+
         index = 0;
       }
+    } else {
+      index = 0;
     }
-  })
-
+  });
 }
-
