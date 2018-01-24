@@ -8,10 +8,12 @@ function init() {
 
     console.log(e.which);
 
-    if (parseInt(e.which) === code[index]) {
+    if (parseInt(e.which || e.detail) === code[index]) {
       index++;
       if (index === code.length) {
         alert('Good for you!!')
+
+        index = 0;
       } else {
         index = 0;
       }
